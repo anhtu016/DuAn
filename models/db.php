@@ -9,15 +9,21 @@ function getConnect(){
     );
     return $connect;
 }
-
-// nếu như dùng để lấy danh sách thì sẽ truyền vào tham số true
-// ngược sẽ là false để thêm, sửa, xóa
-function getData($query, $getAll = true){
-    $conn = getConnect();
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    if($getAll){
-        return $stmt->fetchAll();
+function pdo_execute($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = getConnect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
     }
-    return $stmt->fetch();
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
 }
+
+
+
+

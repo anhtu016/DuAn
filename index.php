@@ -5,7 +5,4 @@ switch ($url){
     case '/':
         listProduct();
         break;
-    case '/admin';
-        include 'admim/admin-html/index.html';
-        break;
 }
