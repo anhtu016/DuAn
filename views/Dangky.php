@@ -68,6 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Tải lên hình ảnh  
                     move_uploaded_file($_FILES['user_img']['tmp_name'], $target_file);  
                     echo "Đăng ký thành công!";  
+                    header("Location: ./views/DangNhap.php");  
+                    exit();
+                    
                 } else {  
                     echo "Lỗi: " . $sql . "<br>" . $conn->error;  
                 }  

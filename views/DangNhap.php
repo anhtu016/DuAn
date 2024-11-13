@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password === $row['user_password']) {  
             $_SESSION['user_name'] = $username;  
             echo "Đăng nhập thành công!";  
+            header("Location: trangchu.html");  
         } else {  
             echo "Mật khẩu không chính xác!";  
         } 
