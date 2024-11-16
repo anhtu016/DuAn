@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password === $row['user_password']) {  
             $_SESSION['user_name'] = $username;  
             echo "Đăng nhập thành công!";  
-            header("Location: trangchu.html");  
+            header("Location: ./views/trangchu.html");  
         } else {  
             echo "Mật khẩu không chính xác!";  
         } 
@@ -49,7 +49,7 @@ $conn->close();
   <input type="text" class="form-control" name="user_password"></input>
 </div>
 <button class="btn btn-success" type="submit">Đăng nhập</button>
-<a href="index.php?act=Dangky.php"></a><button class="btn btn-success">Đăng ký</button></a>
+<a href="Dangky.php"><button class="btn btn-success" type="submit">Đăng ký</button></a>
     </form>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

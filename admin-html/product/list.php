@@ -20,7 +20,7 @@
                             <th>Image</th>
                             <th>Price</th>
                             <th>Description</th>
-                            <th></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
