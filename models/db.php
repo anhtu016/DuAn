@@ -124,5 +124,38 @@ function pdo_query_value($sql){
     }
 }
 
+function pdo_query($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = getConnect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $rows = $stmt->fetchAll();
+        return $rows;
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}
 
+<<<<<<< HEAD
+=======
+function pdo_query_one($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = getConnect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}
+>>>>>>> 09fe4853ef34f7c285280124e254b60706333413
 
