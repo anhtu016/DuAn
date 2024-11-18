@@ -42,7 +42,7 @@
 /  01. Header
 /-----------------------------------------*/
 .header01{
-    position: absolute;
+    
     left: 0;
     top: 0;
     z-index: 2;
@@ -51,10 +51,10 @@
     padding: 0 48px;
 }
 .header01.fixedHeader{
-    position: fixed;
+   
     left: 0;
     top: 0;
-    width: 100%;
+    width: 70%;
     background: #ecf5f4;
     z-index: 999;
     box-shadow: 0 0 50px 0 rgba(29,35,58,.08);
@@ -98,7 +98,7 @@
     padding: 27px 0;
 }
 .logo img{
-    height: 48px;
+    height: 130px;
     width: auto;
 }
 .headerInner02 .logo img{
@@ -366,12 +366,87 @@
 .menuToggler{
     display: none;
 }
+/* Bắt đầu trạng thái ẩn */
+.hidden {
+    opacity: 0;
+    transform: translateY(-10px); /* Di chuyển dropdown lên một chút */
+    pointer-events: none; /* Đảm bảo không nhận click khi ẩn */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Thời gian chuyển động */
+}
+
+/* Khi hiển thị */
+.visible {
+    opacity: 1;
+    transform: translateY(0); /* Di chuyển về vị trí ban đầu */
+    pointer-events: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#userDropdownMenu {
+    display: none; /* Bắt đầu ẩn menu */
+    position: absolute;
+    background-color: white;
+    width: 200px; /* Kiểu dáng gọn gàng hơn */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    top: 50px; /* Căn chỉnh lại vị trí menu */
+    right: 0;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+
+/* Hiển thị menu khi dropdownButton được nhấn */
+#userDropdownMenu.visible {
+    display: block;
+}
+
+/* Styling cho các item trong menu */
+#userDropdownMenu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho các item trong menu */
+#userDropdownMenu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Styling cho ảnh và tên người dùng */
+#userDropdownButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+#userDropdownButton img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+/* Điều chỉnh các phần tử của menu */
+.relative {
+    position: relative;
+}
+
+.grid-cols-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
 
 .accessNav{
     display: inline-flex;
     justify-content: flex-end;
     margin: 0 0 0 auto;
+    
 }
 .headerInner02 .accessNav{
     display: flex;
@@ -1033,6 +1108,8 @@
 .sliderSection01{
     position: relative;
     background: #ecf5f4;
+    width: 100%;
+    height: 100%;
 }
 .ulinaBTN.ulinaSliderBTN{
     height: 54px;
