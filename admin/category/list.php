@@ -1,36 +1,38 @@
-<main>
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Category</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Category</li>
-        </ol>
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                Category
-            </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Category name</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Danh mục 1</td>
-                            <td>
-                                <button class="btn btn-success">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Category</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Category</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <a href="index.php?act=adddm" class="btn btn-primary">Add</a>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Category name</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($category as $c) {
+                                echo '<tr>
+                                    <td>' . $c['id'] . '</td>
+                                    <td>' . $c['product_category_name'] . '</td>
+                                    <td>
+                                        <a href="index.php?act=editdm&id=' . $c['id'] . '"><button class="btn btn-success">Edit</button></a>
+                                        <a href="index.php?act=xoadm&id=' . $c['id'] . '" onclick="return confirm(\'Bạn muốn xóa ?\')" class="btn btn-danger">Xoá</a>
+                                    </td>
+                                </tr>';
+                            } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
