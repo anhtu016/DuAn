@@ -7,17 +7,25 @@ if (isset($_GET["act"])) {
     $act = $_GET["act"];
     switch ($act) {
         case 'listsp':
-            $product = getProduct();
+            if (isset($_POST['update'])) {
+                $category_id = $_POST['category_id'];
+            } else {
+                $category_id = "";
+            }
+            $category = getCategory();
+            $product = getProduct($category_id);
             include("product/list.php");
             break;
         case 'addsp':
             if (isset($_POST['themMoi'])) {
                 $name = $_POST['nameSP'];
+                $categoryId = $_POST['categoryId'];
                 $price = $_POST['priceSP'];
                 $description = $_POST['description'];
-                addProduct($name, $price, $description);
+                addProduct($name, $categoryId, $price, $description);
                 $thongbao = "Thêm thành công";
             }
+            $category = getCategory();
             include "product/add.php";
             break;
         case 'xoasp':
@@ -25,13 +33,15 @@ if (isset($_GET["act"])) {
                 $id = $_GET['id'];
                 deleteProduct($id);
             }
-            $product = getProduct();
+            $product = getProduct("");
             include "product/list.php";
             break;
         case 'editsp':
             if (isset($_GET['id']) && ($_GET["id"] > 0)) {
                 $id = $_GET['id'];
-                $sp = editProduct($id);
+                
+                $category = getCategory();
+                $sp = selectProduct($id);
             }
             include "product/edit.php";
             break;
@@ -44,7 +54,7 @@ if (isset($_GET["act"])) {
                 updateProduct($id, $name, $price, $description);
                 $thongbao = "Sửa thành công";
             }
-            $product = getProduct();
+            $product = getProduct("");
             include "product/list.php";
             break;
         case 'listdm':

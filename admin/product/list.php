@@ -28,7 +28,7 @@
                                 echo '<tr>
                                     <td>' . $p['id'] . '</td>
                                     <td>' . $p['product_name'] . '</td>
-                                    <td>' . $p['category_id'] . '</td>
+                                    <td>' . $p['product_category_name'] . '</td>
                                     <td>' . $p['product_img'] . '</td>
                                     <td>' . $p['product_price'] . '</td>
                                     <td>' . $p['product_description'] . '</td>

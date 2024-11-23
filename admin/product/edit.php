@@ -19,6 +19,19 @@
                                 value="<?php echo $sp['product_name'] ?>">
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Category</label>
+                            <select name="categoryId" class="form-control" id="">
+                                <?php foreach ($category as $c) {
+                                    if ($sp["categoryId"] == $c["id"]) {
+                                        echo '<option value="' . $c["id"] . '" selected>' . $c["prodcut_category_name"] . '</option>';
+                                    } else {
+                                        echo '<option value="' . $c["id"] . '">' . $c["prodcut_category_name"] . '</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Pice</label>
                             <input type="number" class="form-control" name="priceSP"
                                 value="<?php echo $sp['product_price'] ?>">

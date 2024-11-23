@@ -18,6 +18,17 @@
                             <input type="text" class="form-control" name="nameSP">
                         </div>
                         <div class="mb-3">
+                            <label for="" class="form-label">Category</label>
+                            <select name="categoryId" class="form-control" id="">
+                                <option value="0" selected>Choose Category</option>
+                                <?php foreach ($category as $c): ?>
+                                    <option value="<?= $c['id'] ?>">
+                                        <?= $c['product_category_name'] ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Pice</label>
                             <input type="number" class="form-control" name="priceSP">
                         </div>
