@@ -1,11 +1,6 @@
 <?php
 require_once 'db.php';
 // xây dựng hàm truy vấn để lấy dữ liệu
-<<<<<<< HEAD
-function getProduct(){
-    $sql = "SELECT * FROM products";
-    return getProduct();
-=======
 function getProduct()
 {
     $sql = "SELECT * FROM product";
@@ -37,5 +32,4 @@ function updateProduct($id, $name, $price, $description)
     $sql = "UPDATE `product` 
             SET product_name='$name',product_price='$price',product_description='$description' WHERE id = $id";
     pdo_query($sql);
->>>>>>> 09fe4853ef34f7c285280124e254b60706333413
 }
